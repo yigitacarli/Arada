@@ -8,9 +8,13 @@
 - Kullanıcı tüm eski dosyaların silinmesini açıkça istedi. Temizlik commit'i: ae8aea5. Eski commit: 4edc864.
 - Bu devirde yeni uygulama kodu yazılmadı veya cihazda test edilmedi.
 
+## Kullanıcının kapsam düzeltmesi
+
+Kitap, yemek ve yol yalnızca örneklerdi. Bunları kategoriye dönüştüren önceki plan kullanıcı tarafından reddedildi. Ürün belirli etkinlikler veya meslekler çevresinde kurulmayacak. Ekranlar, veri modeli ve başarı ölçütleri bu düzeltmeye uymalı; eski üç kategori geri getirilmemeli.
+
 ## Önerilen kararlar
 
-Native iOS ve SwiftUI; cihazda veri; V0.1'de AI, hesap, backend ve ödeme yok. Üç bağlam tek oturum motorunda. Kısa pratik ile OS koruması ayrı. İlerleme özbildirim ve geçen süreyi karıştırmaz. Tasarım yönü “Gündelik editoryal”; kullanıcı değerlendirmesi bekliyor.
+Native iOS ve SwiftUI; cihazda veri; V0.1'de AI, hesap, backend ve ödeme yok. Tek “Ara ver” akışı; isteğe bağlı niyet aynı oturum motorunda. Dinlenmek, kendi başına düşünmek ve bir şeye yönelmek eşit derecede geçerli. Kısa pratik ile OS koruması ayrı. İlerleme özbildirim ve geçen süreyi karıştırmaz. Tasarım yönü “Gündelik editoryal”; kullanıcı değerlendirmesi bekliyor.
 
 Eski CLAUDE.md'deki sabit program, fiyat, tasarım ve “pazar tamamen boş” iddialarını yeni kullanıcı kararı sayma. Family Controls onayı eski notta yazıyor, portalda doğrulanmadı. Kullanıcı üyeliği doğruladı; spesifik target yetkilerini doğrulamadı.
 

@@ -10,7 +10,7 @@ Apple çerçeveleri: FamilyControls ile bireysel yetkilendirme ve seçim; Manage
 
 Yerel veri: Ayarlarda UserDefaults; oturum geçmişi için sürümlü Codable JSON ve atomik yazım yeterli ilk aday. App Group alanında uzantıların ihtiyaç duyduğu minimum aktif koruma kaydı. Kullanıcı yazılı notları uzantılara taşınmaz. App/extension eşzamanlı yazımı tek sahipli dosyalar veya açık koordinasyonla çöz; tek JSON dosyasına kontrolsüz ortak yazma yapma.
 
-Şema: Practice(id, kind, suggestedSeconds), Session(id, practiceID, startedAt, plannedPracticeSeconds, endedAt?, outcome?), Protection(id, sessionID?, scheduledEndAt, status), Settings(schemaVersion, preferences). Sistem uygulama seçimi opak token olarak tutulur; isim/bundleID çıkarma varsayımı yapılmaz.
+Şema: Practice(id, suggestedSeconds), Session(id, practiceID, intention?, startedAt, plannedPracticeSeconds, endedAt?, outcome?), Protection(id, sessionID?, scheduledEndAt, status), Settings(schemaVersion, preferences). Sistem uygulama seçimi opak token olarak tutulur; isim/bundleID çıkarma varsayımı yapılmaz.
 
 Durumlar ayrı: Pratik idle/running/finished/endedEarly; koruma off/starting/active/stopping/failed/unknown. Koruma başarısızken UI “aktif” göstermemeli. Uygulama öldürülünce kullanıcı odaklanmış veya başarısız sayılmaz. Sonraki açılışta zaman ve koruma durumu uzlaştırılır; belirsizlik saklanmaz.
 
@@ -32,7 +32,7 @@ Süreler odaklı geliştirme günü tahminidir; AI çalışma süresi veya tesli
 | 0 — Hesap ve cihaz hazırlığı | 0.5–1 gün | Xcode/SDK ve gerçek iOS sürümü kaydı; Bundle ID ve app/extension yetki durumu; kişisel veri içermeyen kurulum notu |
 | 1 — Engelleme deneyi | 2–4 gün | Gerçek cihazda seçim → 15 dk koruma → kilitli ekranda otomatik kaldırma; erken çıkış ve izin iptali gözlemi |
 | 2 — Tasarım kararı | 2–3 gün | İki Bugün alternatifi, seçilen yönde 5 temel ekran ve hata durumları; cihaz boyutunda kullanıcı değerlendirmesi |
-| 3 — Kişisel V0.1 | 5–8 gün | Başla/Yemek/Yol; tek oturum motoru; yerel geçmiş; koruma ve pratik ayrımı; hesapsız/offline kullanım |
+| 3 — Kişisel V0.1 | 5–8 gün | Tek Ara ver akışı; isteğe bağlı niyet; tek oturum motoru; yerel geçmiş; koruma ve pratik ayrımı; hesapsız/offline kullanım |
 | 4 — Kişisel deneme | 7–14 takvim günü | Kullanıcının somut geri bildirimi, hata kaydı ve öncelikli en çok 3 düzeltme |
 | 5 — Kapalı beta | 3–5 gün hazırlık + yaklaşık 14 gün test | TestFlight build'i, izin kurulumu, 10–20 kişi testi, kritik hata düzeltmeleri |
 | 6 — İlk mağaza sürümü | Beta sonucuna bağlı | Gerçek ekran görüntüleri, gizlilik beyanları, destek kanalı, erişilebilirlik ve sürüm kontrolü |
@@ -48,11 +48,11 @@ Başarısız kapı: Otomatik koruma kaldırma güvenilir değilse yayınlama. Ö
 | T02 | T01 | 15 dakikalık koruma ve kaldırma deneyi | En az üç fiziksel cihaz denemesinde başlangıç/bitiş saatleri ve sonuç kaydedilir; tolerans gözlenir, sıfır gecikme iddiası yok |
 | T03 | T02 | Erken bitirme ve izin kaybı toparlanması | Koruma tek işlemle kaldırılır; kayıp izinde aktif etiketi kalmaz |
 | T04 | Yok | İki tasarım yönü, birini seçme | Kullanıcı tek yönü değerlendirir; karar gerekçesi ve ekran durumları kayıtlı |
-| T05 | T03,T04 | Pratik motoru ve üç bağlam | Aynı motor kullanılır; kısa pratiğin bitmesi koruma bitmiş gibi gösterilmez |
+| T05 | T03,T04 | Pratik motoru ve isteğe bağlı niyet | Niyet seçmeden başlanabilir; dinlenme ve düşünme iş tamamlama sayılmaz; kısa pratiğin bitmesi koruma bitmiş gibi gösterilmez |
 | T06 | T05 | Yerel geçmiş ve yanıt | Yeniden açmada kayıt kalır; cevapsız veri başarı sayılmaz; çift callback çift kayıt üretmez |
 | T07 | T06 | Erişilebilirlik ve hata durumları | Büyük yazı, VoiceOver, koyu tema, offline ve boş geçmiş çalışır |
 | T08 | T07 | 7–14 günlük kişisel test | Bulgularla devam/düzelt kararı, en çok üç sorun |
-| T09 | T08 | İsteğe bağlı Önce Ben deneyi | Zorunlu metin yok, dış AI soruları okunmuyor; katkı ayrı değerlendiriliyor |
+| T09 | T08 | İsteğe bağlı düşünce notu deneyi | Ortak akışa yerel not eklenmesinin katkısı denenir; yazmadan devam mümkün, dış AI soruları okunmaz |
 | T10 | T08 | TestFlight hazırlığı | Dağıtım target izinleri doğrulanmış; cihaz üstü beta kurulumu başarılı |
 
 ## Kritik test senaryoları
@@ -64,6 +64,8 @@ Başarısız kapı: Otomatik koruma kaldırma güvenilir değilse yayınlama. Ö
 - 2 dakikalık pratik biterken 15 dakikalık korumanın devam etmesinin doğru anlatılması.
 - Kullanıcı korumayı erken bitirir: seçilen uygulamalar açılır; geçmiş uydurma başarı üretmez.
 - Telefon/harita/bilet erişimi; büyük metinde eylemlere ulaşma; cihaz verilerini silme.
+
+İçerik kabulü: Niyet seçmeden başlangıç, sadece dinlenme, kendi başına düşünme ve kullanıcının seçtiği farklı etkinliklerde aynı akış denenir. Öğrenci/meslek/etkinlik varsayımı veya zorunlu yazılı cevap bulunmamalı.
 
 Saf birim testleri oturum geçişleri, zaman uzlaştırma, çift kayıt ve veri göçü gibi mantık için. Screen Time davranışı fiziksel cihazda doğrulanmadan “testler geçti” ifadesi ürün kanıtı değildir. Simülatör görsel test içindir.
 

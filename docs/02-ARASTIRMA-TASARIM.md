@@ -12,7 +12,7 @@
 | [Forest](https://www.forestapp.cc/) | Odak süresini büyüyen ağaca dönüştüren görsel geri bildirim | İlerlemenin hissedilir olması değerli. ARADA'da yarıda bırakmayı kayıp veya ceza üzerinden anlatmak zorunda değiliz |
 | [Headspace](https://www.headspace.com/app) | Meditasyon, uyku ve geniş rehberli içerik; karakterli görsel kimlik | Sıcaklık ve görsel tutarlılık örnek alınabilir. ARADA için içerik kütüphanesi ve AI rehberi kapsamı büyütür |
 
-**Farklılaşma hipotezi:** Yemek, yol ve başlama anlarını aynı kısa akışta ele almak; kişinin AI'a başvurmadan önce kendi düşüncesini oluşturmasına yer açmak. “Bunu kimse yapmıyor” sonucu çıkarılamaz; araştırma pazarın tamamını kapsamaz.
+**Farklılaşma hipotezi:** Otomatik kullanımın farkına varma, uyaran olmadan kalma ve kendi dikkatini yönlendirmeyi tek bir isteğe bağlı ara akışında ele almak. Dinlenmek ve kendi başına düşünmek de temel kullanım amaçlarıdır. “Bunu kimse yapmıyor” sonucu çıkarılamaz; araştırma pazarın tamamını kapsamaz.
 
 ## Sanat yönetimi
 
@@ -35,7 +35,7 @@ Bunlar kaynak sitelerden görsel varlık indirme veya yeniden kullanma lisansı 
 | Koyu tema | Kömür `#20251F`, açık metin `#F0EDE3`, açık zeytin `#C0CEA7`; parlak siyah kartlar yok |
 | Tipografi | Büyük başlıkta karakterli serif adayı; kontroller ve gövdede sistem yazısı. Türkçe glifler ve lisans denetlenmeden font kesinleşmez |
 | Geometri | Geniş sayfa kenarları, asimetrik başlık, tek güçlü eylem, ince ayırıcılar; her metni ayrı karta koyma |
-| Grafik | Yemek/yol/kitap anlarını anlatan az sayıda özgün kesik kâğıt veya çizgi illüstrasyonu; ana eylemin önüne geçmez |
+| Grafik | Alan ve aralık hissini anlatan az sayıda özgün soyut kompozisyon; kitap, tabak veya ulaşım simgeleri ana kimliği tanımlamaz; ana eylemin önüne geçmez |
 | Hareket | Sadece seçim ve ekran değişiminde kısa geçiş; sürekli hareket eden görsel yok. Reduce Motion desteği |
 | Oturum | Ekrana bakmayı gerektirmeyen yapı. Büyük geri sayım isteğe bağlı; görsel gösteriyi izleme zorunluluğu yok |
 
@@ -43,12 +43,16 @@ Palet ilk adaydır; son renk çiftlerinin kontrastı ölçülecek. Sistem fontu 
 
 ### İki alternatif
 
-1. **Gündelik editoryal — önerilen:** Sıcak kâğıt, koyu zeytin, karakterli başlık. Yemek ve okuma gibi gündelik bağlamlara yakın.
+1. **Gündelik editoryal — önerilen:** Sıcak kâğıt, koyu zeytin, karakterli başlık. Belirli bir etkinliğe bağlı olmayan, farklı yaşam düzenlerinde kullanılabilen bir görsel dil.
 2. **Gece istasyonu:** Kömür, soluk mavi, daha teknik ve sade tipografi. Gece ve toplu taşıma hissi kuvvetli; ürünün tamamını karanlık odak aracına dönüştürme riski var.
 
 İlk tasarım turunda bu iki yönün yalnızca Bugün ekranı karşılaştırılır. Seçilen yön Hazırlık, Ara, Dönüş ve Geçmiş ekranlarına uygulanır. Üçüncü/dördüncü yön açmak yerine seçimin nedenleri kaydedilir.
 
 ### Tasarım kabulü
+
+- Ana ekran tek “Ara ver” eylemine dayanır. Hazırlıkta isteğe bağlı niyet seçilir; etkinlik/meslek kartları yok.
+- İlk örnek taslaktaki kitap grafiği ve Başla/Yemek/Yol menüsü geçersizdir. Üretimde yeniden kullanılmamalı.
+- Dönüş sorusu “Bu ara sana iyi geldi mi?”; tüm niyetlerde dinlenmeye ve sonuç üretmemeye yer bırakır.
 
 - iPhone 16e boyutunda ana eylem kaydırma olmadan görünür; büyük metinde okunabilir akış korunur.
 - Dynamic Type, VoiceOver, koyu tema, Reduce Motion ve en az 44pt dokunma hedefleri denetlenir.

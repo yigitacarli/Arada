@@ -12,7 +12,7 @@ Plan tarihi: 10 Eylül 2026. İlk cihaz: iPhone 16e. Geliştirme: MacBook ve mev
 3. [Teknik yol haritası](docs/03-TEKNIK-YOL-HARITASI.md): Aşamalar, sınırlar ve tamamlanma ölçütleri.
 4. [Sonraki modele devir](docs/04-MODELE-DEVIR.md): İlk görev ve çalışma kuralları.
 
-İlk sürüm için öneri: native iOS, SwiftUI, cihazda veri, hesap ve AI servisi olmadan tek bir güvenilir kullanım döngüsü. Platform seçimi kullanıcı tarafından doğrulandı; diğer ürün kararları bu planın önerileridir.
+İlk sürüm için öneri: native iOS, SwiftUI, cihazda veri, hesap ve AI servisi olmadan tek bir güvenilir kullanım döngüsü. Platform seçimi ve etkinlik kategorilerinden bağımsız, geniş kitleye hitap eden ürün yaklaşımı kullanıcı tarafından doğrulandı. Tek “Ara ver” akışı önerilir; niyet seçimi isteğe bağlıdır. Diğer ürün kararları bu planın önerileridir.
 
 ## Repo temizliği
 

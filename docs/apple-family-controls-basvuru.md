@@ -1,7 +1,9 @@
 # Family Controls (Distribution) başvurusu
 
-Bunu **bir kez** yapman gerekiyor ve onay haftalar sürebiliyor — bu yüzden ilk iş bu.
-Onayı beklerken geliştirme durmuyor: Xcode'daki *geliştirme* yetkisi onay olmadan da çalışıyor.
+> **Durum: ONAYLANDI — 10 Eylül 2026.** Apple yetkiyi aynı gün hesaba tanımladı.
+> Aşağıdaki metin arşiv olarak duruyor; uzantı kimlikleri için tekrar gerekirse kullanılır.
+> Sıradaki iş: Xcode'da her hedefe *Signing & Capabilities → + Capability → Family Controls*
+> eklemek. Otomatik imzalamada Xcode App ID'leri kendisi oluşturuyor.
 
 ## Nereye
 

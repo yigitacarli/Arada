@@ -1,0 +1,3 @@
+* text=auto eol=lf
+*.xcconfig text eol=lf
+*.strings text eol=lf

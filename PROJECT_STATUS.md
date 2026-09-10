@@ -14,6 +14,7 @@ Son güncelleme: 10 Eylül 2026
 - ARADA dilinde sınırlı Shield Configuration extension.
 - Kullanıcının ARADA içinden korumayı erken bitirmesi.
 - Uygulama yeniden aktif olduğunda izin ve süre durumunu uzlaştırma.
+- ARADA'nın “dürtü ile eylem arasındaki boşluk” fikrini iki organik durak formuyla anlatan, sıcak kâğıt ve zeytin tonlarında 1024×1024 uygulama ikonu.
 
 Bu ekran teknik denemedir; nihai ürün tasarımı değildir. Uygulama açılışlarında sürekli müdahale, yeniden müdahale, niyet akışı, geçmiş ve manuel ara oturumu henüz yoktur.
 
@@ -31,6 +32,7 @@ Bu ekran teknik denemedir; nihai ürün tasarımı değildir. Uygulama açılı�
 - İlk cihaz denemesinde tüm “Sosyal” kategorisinin `0` görünmesi teşhis edildi: seçim kategori tokenı üretiyor, önceki kod yalnız uygulama tokenlarını sayıyor ve koruyordu. Kod kategori ve web alanı tokenlarını da işleyecek şekilde düzeltildi; yeni cihaz derlemesinde tekrar test bekliyor.
 - İlk sürümde Live Activity uzantısı bulunmadığı için Bildirim Merkezi'nde sayaç oluşmadı. ActivityKit/WidgetKit uzantısı eklendi; yeni cihaz derlemesinde tekrar test bekliyor.
 - Kategori düzeltmesi ve Live Activity içeren dört hedefli proje imzalı olarak derlendi, bağlı “Yeet’s iPhone” cihazına kuruldu ve başlatıldı. Kategori shield'ı ile Live Activity'nin görsel cihaz doğrulaması kullanıcıdan bekleniyor.
+- Yeni uygulama ikonu asset catalog'a bağlandı; imzasız ve imzalı iPhoneOS derlemeleri başarılı oldu ve ikonlu sürüm bağlı “Yeet’s iPhone” cihazına kuruldu. Ana ekrandaki küçük boyut görünümü kullanıcı tarafından değerlendirilecek.
 
 ## Henüz doğrulanmayanlar
 

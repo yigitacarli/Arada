@@ -43,6 +43,7 @@ targets:
         PRODUCT_NAME: Arada
         PRODUCT_MODULE_NAME: Arada
         TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_ENTITLEMENTS: Config/Arada.entitlements
     info:
       path: Supporting/Arada-Info.plist

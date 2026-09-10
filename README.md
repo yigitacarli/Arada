@@ -2,7 +2,7 @@
 
 **Telefonla arana, hayatına yer açacak küçük bir mesafe.**
 
-Durum: Araştırma ve planlama tamamlandı; yeni uygulama henüz geliştirilmedi.
+Durum: İlk native iOS Screen Time teknik çekirdeği geliştirildi ve imzasız iPhoneOS derlemesi geçti. Gerçek iPhone 16e testi sırada.
 Plan tarihi: 10 Eylül 2026. İlk cihaz: iPhone 16e. Geliştirme: MacBook ve mevcut Apple Developer üyeliği.
 
 ## Başlangıç
@@ -11,6 +11,8 @@ Plan tarihi: 10 Eylül 2026. İlk cihaz: iPhone 16e. Geliştirme: MacBook ve mev
 2. [Araştırma ve tasarım](docs/02-ARASTIRMA-TASARIM.md): Rakipler, kaynaklar, ekranlar ve görsel yön.
 3. [Teknik yol haritası](docs/03-TEKNIK-YOL-HARITASI.md): Aşamalar, sınırlar ve tamamlanma ölçütleri.
 4. [Sonraki modele devir](docs/04-MODELE-DEVIR.md): İlk görev ve çalışma kuralları.
+5. [Güncel durum](PROJECT_STATUS.md): Tamamlanan, doğrulanmayan ve sıradaki tek iş.
+6. [Cihaz testi](docs/05-CIHAZ-TESTI.md): iPhone 16e üzerinde ilk doğrulama.
 
 İlk sürüm için öneri: native iOS, SwiftUI, cihazda veri, hesap ve AI servisi olmadan tek bir güvenilir kullanım döngüsü. Platform seçimi ve etkinlik kategorilerinden bağımsız, geniş kitleye hitap eden ürün yaklaşımı kullanıcı tarafından doğrulandı. Tek “Ara ver” akışı önerilir; niyet seçimi isteğe bağlıdır. Diğer ürün kararları bu planın önerileridir.
 
@@ -20,4 +22,4 @@ Kullanıcının açık isteğiyle önceki 39 dosya `ae8aea5` commit'inde kaldır
 
 ## İlk teknik hedef
 
-Gerçek iPhone üzerinde uygulama seç → 15 dakikalık koruma başlat → seçilen uygulamanın engellendiğini gör → ekran kilitliyken süre sonunda engelin kalktığını doğrula. Kısa pratikleri 15 dakikadan kısa işletim sistemi zamanlamasına bağlamadan tasarla.
+Gerçek iPhone üzerinde uygulama seç → 15 dakikalık koruma başlat → seçilen uygulamanın engellendiğini gör → ekran kilitliyken süre sonunda engelin kalktığını doğrula. Kod bu deney için hazır ve iPhoneOS hedefinde derleniyor; cihaz sonucu henüz yok. Kısa pratikleri 15 dakikadan kısa işletim sistemi zamanlamasına bağlamadan tasarla.

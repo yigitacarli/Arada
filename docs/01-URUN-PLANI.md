@@ -8,18 +8,19 @@ ARADA, otomatik dijital kullanımı fark etmeyi, her boşluğu içerikle doldurm
 
 İlk pilot yetişkinlerle yapılacak; bu bir test kapsamıdır, ürünün yalnızca belirli yetişkin profillerine hitap etmesi anlamına gelmez. Her yaş için uygunluk iddiası, çocuklara yönelik akış ve dağıtım gereksinimleri değerlendirilmeden kullanılmaz. Önce kişisel yarar, sonra farklı yaşam düzenlerine sahip küçük bir grupta doğrulama hedeflenir. Milyonlarca kullanıcı henüz doğrulanmış talep değildir.
 
-Ana hipotez: **Kısa bir durak, isteğe bağlı dijital sınır ve kişinin kendi niyetini seçmesi, otomatik kullanımın yerine daha bilinçli seçim koymaya yardımcı olabilir.** ARADA özelinde henüz test edilmedi.
+Ana hipotez: **Kullanıcının seçtiği dikkat dağıtıcı uygulama açılırken sunulan kısa bir durak, isteğe bağlı dijital sınır ve kişinin kendi niyetini seçmesi, otomatik kullanımın yerine daha bilinçli seçim koymaya yardımcı olabilir.** ARADA özelinde henüz test edilmedi.
 
 Başarı yalnızca üretkenlik veya iş tamamlama değildir. Hiçbir şey yapmadan dinlenmek de geçerli sonuçtur. Kullanıcı zamanla ARADA olmadan da bu seçimi yapabilmeli.
 
 ## 2. İlk sürümün kullanım döngüsü
 
-1. Ana ekran: “Biraz alan aç.” Birincil eylem: “Ara ver”. Meslek veya etkinlik seçmeden ilerlenebilir.
-2. Hazırlıkta isteğe bağlı niyet: “Sadece durmak”, “Kendim düşünmek”, “Bir şeye yönelmek”. Bunlar aynı oturumun tercihleridir; ayrı ürün bölümleri değildir. Seçmeden devam mümkündür.
-3. Kullanıcı süreyi seçer; isterse belirlediği dikkat dağıtıcı uygulamalar için koruma açar. Başlangıçta kısa süre önerilir, önceki niyet otomatik dayatılmaz.
-4. Telefonu bırakır; ekran açık kalmak zorunda değildir. Kullanıcıdan yazı yazması, nefesini değiştirmesi veya belirli bir fiziksel hareket yapması istenmez.
-5. Dönüşte isteğe bağlı tek soru: “Bu ara sana iyi geldi mi?” Yanıt: Evet / Biraz / Hayır / Atla. Bu kişisel yarar değerlendirmesidir; sağlık veya odak puanı değildir.
-6. Sonuç kısa biçimde kaydolur. Yeni bir içerik akışı açılmaz.
+1. Kullanıcı önceden kendi dikkat dağıtıcı uygulamalarını ve istediği koruma biçimini seçer.
+2. Seçilen bir uygulama açıldığında ARADA'nın sistem müdahalesi otomatik davranışı kısa süreliğine keser.
+3. Kullanıcı isterse niyetini belirler; devam etmeyi veya uygulamadan geri dönmeyi seçer. Meslek veya etkinlik seçmek gerekmez.
+4. Uzun kullanım için yeniden müdahale seçeneği sonraki sürümde cihaz davranışıyla doğrulanır.
+5. Ana uygulamadaki “Ara ver” manuel oturumu destekleyici bir giriş noktasıdır; ürünün tek merkezi değildir.
+
+Manuel arada hazırlık niyeti “Sadece durmak”, “Kendim düşünmek” veya “Bir şeye yönelmek” olabilir. Seçmeden devam etmek mümkündür. Telefonun ekranı açık kalmaz; yazı yazma, nefes veya fiziksel hareket zorunlu değildir. Dönüş sorusu isteğe bağlıdır ve sağlık ya da odak puanı üretmez.
 
 Pratik süresi ile koruma süresi ayrı kavramlardır. Örneğin kullanıcı 2 dakikalık ara ve ayrıca 15 dakikalık koruma seçebilir. Arayüz ikisini açıkça adlandırır; 2 dakika dolunca uygulamaların otomatik açılacağı sözü verilmez.
 

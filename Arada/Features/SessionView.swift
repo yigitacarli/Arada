@@ -7,6 +7,7 @@ struct SessionView: View {
 
     @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.palette) private var p
     @StateObject private var motion = FaceDownMonitor()
 
     @State private var focused: TimeInterval = 0
@@ -17,22 +18,19 @@ struct SessionView: View {
 
     private let tick = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
 
+    private var progress: Double { min(1, focused / day.seconds) }
+
     var body: some View {
         ZStack {
-            // Oturum sırasında ekran siyaha düşüyor: telefon yüzüstü duruyor,
-            // bakılacak bir şey yok ve OLED ekran boşa yanmıyor.
-            (phase == .running ? Color.black : Color.aradaPaper)
-                .ignoresSafeArea()
-                .animation(.easeInOut(duration: 0.6), value: phase)
+            WallGradient(dimmed: phase == .running)
 
-            VStack(spacing: 0) {
-                Spacer()
-                content
-                Spacer()
-                footer
+            if phase != .waiting {
+                WalkingLight(progress: phase == .done ? 1 : progress)
+                    .animation(.linear(duration: 0.28), value: progress)
             }
-            .padding(.horizontal, 32)
-            .padding(.bottom, 32)
+
+            GrainOverlay()
+            content
         }
         .onAppear {
             motion.start()
@@ -53,73 +51,87 @@ struct SessionView: View {
     private var content: some View {
         switch phase {
         case .waiting:
-            VStack(spacing: 18) {
+            VStack(spacing: 0) {
+                Spacer()
+                BrandMark(size: 27).opacity(0.9)
                 Text("session.turnOver")
-                    .font(.aradaDisplay(27, weight: .light))
+                    .font(.serifDisplay(40))
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Color.aradaInk)
+                    .foregroundStyle(p.ink)
+                    .padding(.top, 32)
                 Text("session.turnOverBody")
-                    .font(.aradaBody)
+                    .font(.serifText(16.5, .light))
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Color.aradaInk2)
+                    .lineSpacing(3)
+                    .foregroundStyle(p.inkSoft)
+                    .frame(maxWidth: 280)
+                    .padding(.top, 20)
+                Spacer()
+                Button("session.cancel") { dismiss() }
+                    .font(.serifText(11))
+                    .tracking(2)
+                    .textCase(.uppercase)
+                    .foregroundStyle(p.inkFaint)
             }
+            .padding(.horizontal, 34)
+            .padding(.bottom, 40)
 
         case .running:
-            VStack(spacing: 20) {
-                Text(remainingText)
-                    .font(.aradaNumeral(64))
-                    .foregroundStyle(Color.white.opacity(motion.isFaceDown ? 0.10 : 0.55))
+            VStack(spacing: 0) {
+                Spacer()
                 if !motion.isFaceDown {
                     Text("session.paused")
-                        .font(.aradaBody)
+                        .font(.serifText(15, .light))
                         .multilineTextAlignment(.center)
-                        .foregroundStyle(Color.white.opacity(0.45))
+                        .foregroundStyle(Color.white.opacity(0.40))
                 }
+                Spacer()
+                Button("session.giveUp") { end(completed: false) }
+                    .font(.serifText(11))
+                    .tracking(2)
+                    .textCase(.uppercase)
+                    .foregroundStyle(Color.white.opacity(motion.isFaceDown ? 0 : 0.32))
             }
+            .padding(.bottom, 44)
             .animation(.easeInOut(duration: 0.5), value: motion.isFaceDown)
 
         case .done:
-            VStack(spacing: 18) {
+            VStack(alignment: .leading, spacing: 0) {
+                Spacer()
                 Text("session.done")
-                    .font(.aradaDisplay(30, weight: .light))
-                    .foregroundStyle(Color.aradaInk)
+                    .font(.serifDisplay(60))
+                    .foregroundStyle(p.ink)
                 Text("session.doneBody \(day.minutes)")
-                    .font(.aradaBody)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(Color.aradaInk2)
+                    .font(.serifText(17.5, .light))
+                    .lineSpacing(3)
+                    .foregroundStyle(p.inkSoft)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, 16)
+                RailLabel(text: "session.doneNote")
+                    .padding(.top, 22)
+                Hairline().padding(.vertical, 26)
+                Button { dismiss() } label: {
+                    Text("session.close")
+                        .font(.serifText(11))
+                        .tracking(2.4)
+                        .textCase(.uppercase)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 17)
+                        .foregroundStyle(p.ink)
+                        .overlay(Rectangle().stroke(p.ink.opacity(0.34), lineWidth: 1))
+                }
+                .buttonStyle(.plain)
             }
+            .padding(.horizontal, 30)
+            .padding(.bottom, 40)
         }
-    }
-
-    @ViewBuilder
-    private var footer: some View {
-        switch phase {
-        case .waiting:
-            QuietButton(title: "session.cancel", filled: false) { dismiss() }
-        case .running:
-            // Vazgeçme düğmesi telefon yüzüstüyken tamamen kayboluyor;
-            // ancak telefonu eline aldığında geri geliyor.
-            Button("session.giveUp") { end(completed: false) }
-                .font(.aradaSmall)
-                .foregroundStyle(Color.white.opacity(motion.isFaceDown ? 0.0 : 0.35))
-                .animation(.easeInOut(duration: 0.5), value: motion.isFaceDown)
-        case .done:
-            QuietButton(title: "session.close") { dismiss() }
-        }
-    }
-
-    private var remainingText: String {
-        let left = max(0, day.seconds - focused)
-        return String(format: "%d:%02d", Int(left) / 60, Int(left) % 60)
     }
 
     private func advance() {
-        guard phase == .running else { return }
-        guard motion.isFaceDown else {
+        guard phase == .running, motion.isFaceDown else {
             lastTick = nil
             return
         }
-
         let now = Date()
         defer { lastTick = now }
         guard let last = lastTick else { return }

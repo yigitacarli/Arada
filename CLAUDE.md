@@ -85,17 +85,27 @@ GitHub: <https://github.com/yigitacarli/Arada> · dal `main`
 
 ## Durum
 
-Yazıldı ama **henüz hiç derlenmedi** — kod Windows'ta üretildi, Xcode orada yok.
-İlk `⌘R`'de hata çıkması olası.
+Görsel sistem SwiftUI'a geçirildi ama **hâlâ hiç derlenmedi** — kod Windows'ta
+üretildi, Xcode orada yok. İlk `xcodegen generate` + `⌘R`'de hata çıkması olası;
+çıkarsa düzelt, sonra cihazda görerek ışık/doku/tipografi ince ayarı yap.
 
 - `Model/Program.swift` — 8 haftalık program, kaçırılan gün kuralı
 - `Model/Store.swift` — cihazda JSON, sunucu yok, hesap yok
 - `Model/FaceDownMonitor.swift` — CoreMotion, `gravity.z > 0.8`
-- `Features/TodayView.swift`, `Features/SessionView.swift`
-- `Design/Theme.swift` — **eski kâğıt-mürekkep teması, yeni görsel sisteme göre
-  değiştirilecek**
+- `Design/Theme.swift` — `DayLight` (günün saati → palet), fontlar, `RailLabel`
+- `Design/Wall.swift` — `WallGradient`, `GrainOverlay` (CoreImage gürültü),
+  `BrandMark` (pencere), `StaticBeam` (Bugün), `WalkingLight` (Oturum)
+- `Design/Components.swift` — `QuietButton`, `ProgramLadder`, `Hairline`
+- `Features/TodayView.swift` — Bugün ekranı, yeni sistem
+- `Features/SessionView.swift` — Oturum: bekleme → ışık yürür → bitti
+- `Resources/Fonts/` — Instrument Serif + Newsreader (OFL), `project.yml`'de `UIAppFonts`
 
-Sıradaki iş: yeni görsel sistemi SwiftUI'a geçirmek, sonra Screen Time entegrasyonu.
+Bilinen belirsizlikler (Xcode'da doğrulanacak):
+- Newsreader değişken font; `.weight(.light)` düşmezse statik kesit gerekir (Fonts/README.md).
+- `WalkingLight` ışık dörtgeni ve blur değerleri gözle ayarlanmalı — Windows'ta tahminî yazıldı.
+- Oturumda `WallGradient(dimmed:)` ekranı %86 karartıyor; cihazda fazla/az olabilir.
+
+Sıradaki iş: derleme hatalarını temizle → cihazda görsel ince ayar → Screen Time entegrasyonu (Faz 2).
 
 ## Referanslar
 

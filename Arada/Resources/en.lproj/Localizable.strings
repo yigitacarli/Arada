@@ -2,23 +2,26 @@
 "today.subtitle" = "Boredom training";
 "today.todayLabel" = "Today";
 "today.doneLabel" = "Done today";
+"today.heroCaption" = "minutes of nothing";
 "today.minutes" = "minutes";
 "today.weekDay %lld %lld" = "Week %1$lld · Day %2$lld";
-"today.instruction" = "Put the phone face down. No headphones, no music, nothing. The timer only runs while the phone is down.";
+"today.instruction" = "Put the phone face down. The light walks on its own — you don't have to do anything.";
+"today.doneToday" = "Today's sitting is done. The light reached the far edge.";
 "today.start" = "Start";
 "today.again" = "Sit again";
 "today.progressLabel" = "Eight weeks";
 "today.statDays" = "Days";
-"today.statFocused" = "Time spent bored";
+"today.statFocused" = "Spent bored";
 "today.programComplete" = "You finished the eight weeks.";
 "today.programCompleteBody" = "Twenty-two minutes with nothing to look at. That capacity was gone and you built it back. Keep sitting whenever you want to.";
 
 /* Session */
 "session.turnOver" = "Turn the phone face down";
-"session.turnOverBody" = "The timer starts on its own. It stops if you pick the phone up.";
+"session.turnOverBody" = "The timer starts when light comes through the window. It stops if you pick the phone up.";
 "session.paused" = "Paused. Turn it back over.";
 "session.giveUp" = "End the session";
 "session.cancel" = "Not now";
 "session.done" = "Done.";
-"session.doneBody %lld" = "%lld minutes with no input. Tomorrow is the same.";
+"session.doneBody %lld" = "%lld minutes of nothing. The light crossed to the far edge, and you were there.";
+"session.doneNote" = "Tomorrow, the same";
 "session.close" = "Close";

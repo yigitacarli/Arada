@@ -1,24 +1,27 @@
-/* Today */
+/* Bugün */
 "today.subtitle" = "Sıkılma antrenmanı";
 "today.todayLabel" = "Bugün";
 "today.doneLabel" = "Bugün tamamlandı";
+"today.heroCaption" = "dakika hiçbir şey";
 "today.minutes" = "dakika";
 "today.weekDay %lld %lld" = "%1$lld. hafta · %2$lld. gün";
-"today.instruction" = "Telefonu yüzüstü çevir. Kulaklık yok, müzik yok, hiçbir şey yok. Sayaç yalnızca telefon yüzüstüyken ilerler.";
+"today.instruction" = "Telefonu yüzüstü çevir. Işık kendi kendine yürüyecek — bir şey yapman gerekmiyor.";
+"today.doneToday" = "Bugünkü oturum tamam. Işık karşı kenara vardı.";
 "today.start" = "Başla";
 "today.again" = "Bir kez daha otur";
 "today.progressLabel" = "Sekiz hafta";
 "today.statDays" = "Gün";
-"today.statFocused" = "Sıkılarak geçen süre";
+"today.statFocused" = "Sıkılarak geçen";
 "today.programComplete" = "Sekiz haftayı bitirdin.";
 "today.programCompleteBody" = "Bakacak hiçbir şey olmadan yirmi iki dakika. Bu kapasite gitmişti, geri kurdun. İstediğin zaman oturmaya devam et.";
 
-/* Session */
+/* Oturum */
 "session.turnOver" = "Telefonu yüzüstü çevir";
-"session.turnOverBody" = "Sayaç kendiliğinden başlayacak. Telefonu eline alırsan durur.";
+"session.turnOverBody" = "Işık pencereden girdiğinde sayaç başlar. Telefonu eline alırsan durur.";
 "session.paused" = "Durdu. Telefonu geri çevir.";
 "session.giveUp" = "Oturumu bitir";
 "session.cancel" = "Şimdi değil";
 "session.done" = "Bitti.";
-"session.doneBody %lld" = "Hiçbir uyaran olmadan %lld dakika. Yarın aynısı.";
+"session.doneBody %lld" = "%lld dakika hiçbir şey. Işık karşı kenara vardı ve sen oradaydın.";
+"session.doneNote" = "Yarın aynısı";
 "session.close" = "Kapat";

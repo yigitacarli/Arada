@@ -1,0 +1,17 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "A · Kitap — Bugün" },
+    { "file": "OlcumBugun.dc.html", "x": 550, "y": 0, "w": 390, "h": 844, "title": "B · Ölçüm — Bugün" },
+    { "file": "BoslukBugun.dc.html", "x": 1100, "y": 0, "w": 390, "h": 844, "title": "C · Boşluk — Bugün" },
+    { "file": "KitapOturum.dc.html", "x": 0, "y": 990, "w": 390, "h": 844, "title": "A · Kitap — Oturum" },
+    { "file": "OlcumOturum.dc.html", "x": 550, "y": 990, "w": 390, "h": 844, "title": "B · Ölçüm — Oturum" },
+    { "file": "BoslukOturum.dc.html", "x": 1100, "y": 990, "w": 390, "h": 844, "title": "C · Boşluk — Oturum" }
+  ],
+  "annotations": [
+    { "id": "yon-a", "x": 0, "y": -210, "w": 390, "text": "A · KİTAP\nEksen: tipografi. Kâğıt zemin, serif, saç teli çizgiler, tek vurgu rengi. Program ilerlemesi 8 haftalık merdiven olarak okunuyor.\n\nGüçlü yanı: sessiz, olgun, kategoride kimseye benzemiyor. Kitap okuma derdiyle görsel olarak da örtüşüyor.\nRiski: Opal'ın yanında çıplak durur. İlk ekran görüntüsünde \"vay\" dedirtmez." },
+    { "id": "yon-b", "x": 550, "y": -210, "w": 390, "text": "B · ÖLÇÜM\nEksen: alet. Karanlık panel, monospace rakam, tik işaretleri, kehribar sinyal rengi. Oturum ekranı bir kadran — dikkat ölçülen bir büyüklük.\n\nGüçlü yanı: ciddi ve ayırt edici. \"Seni ölçüyorum\" mesajı ürünün metrik tarafını taşıyor.\nRiski: soğuk. \"Huzur verici\" hedefinden en uzak olan yön." },
+    { "id": "yon-c", "x": 1100, "y": -210, "w": 390, "text": "C · BOŞLUK\nEksen: atmosfer. Tek düz renk alanı ekranı kaplıyor, arayüz neredeyse yok. Rakam devasa ve ince; ızgara, grafik, çizgi yok.\n\nGüçlü yanı: ilk açılışta en çarpıcı olan. Boşluk hem konu hem biçim.\nRiski: bilgi hiyerarşisi zayıf; meditasyon uygulamalarına kayma tehlikesi var." },
+    { "id": "not-oturum", "x": 0, "y": 1880, "w": 940, "text": "Alt sıra: oturum sürerken, telefon yüzüstü. Üçünde de ekran neredeyse kararıyor — bu ortak karar, çünkü bakılacak bir şey bırakmak istemiyoruz. Fark, karardıktan sonra geriye ne kaldığında: A'da tek bir soluk rakam, B'de sönen bir kadran, C'de renk alanının içinde eriyen sayı." }
+  ],
+  "launch": { "view": "canvas" }
+}

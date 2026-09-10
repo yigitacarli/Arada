@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #221E17; } a:hover { color: #000000; }
+    .disp { font-family: "Instrument Serif", ui-serif, Georgia, serif; }
+    .text { font-family: "Newsreader", ui-serif, Georgia, serif; }
+    .caps { letter-spacing: 0.2em; text-transform: uppercase; }
+  </style>
+</helmet>
+
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #CBC4B7;">
+
+  <div style="position: absolute; inset: 0; background: radial-gradient(130% 90% at 74% 62%, #D8D2C6 0%, #C7C0B2 48%, #B0A99B 100%);"></div>
+
+  <!-- ışık karşı kenara vardı -->
+  <svg viewBox="0 0 390 844" style="position: absolute; inset: 0; width: 390px; height: 844px;">
+    <defs>
+      <filter id="soft-d" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="18"></feGaussianBlur>
+      </filter>
+      <filter id="soft-d2" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+      </filter>
+      <linearGradient id="beam-d" x1="0.1" y1="0.1" x2="0.9" y2="0.9">
+        <stop offset="0" stop-color="#FCF6E6" stop-opacity="0.96"></stop>
+        <stop offset="0.6" stop-color="#F4E9D0" stop-opacity="0.76"></stop>
+        <stop offset="1" stop-color="#E8DBBD" stop-opacity="0.34"></stop>
+      </linearGradient>
+    </defs>
+    <polygon points="150,318 404,258 438,586 184,662" fill="url(#beam-d)" filter="url(#soft-d)"></polygon>
+    <polygon points="286,292 298,290 330,624 318,627" fill="#A79D8B" opacity="0.26" filter="url(#soft-d2)"></polygon>
+  </svg>
+
+  <svg style="position: absolute; inset: 0; width: 390px; height: 844px; opacity: 0.075; mix-blend-mode: multiply;">
+    <filter id="grain-d">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"></feTurbulence>
+      <feColorMatrix type="saturate" values="0"></feColorMatrix>
+    </filter>
+    <rect width="390" height="844" filter="url(#grain-d)"></rect>
+  </svg>
+
+  <div style="position: absolute; inset: 0; box-sizing: border-box; padding: 62px 30px 44px; display: flex; flex-direction: column; justify-content: flex-end;">
+
+    <div class="disp" style="font-size: 62px; line-height: 1; letter-spacing: -0.025em; color: #221E17;">Bitti.</div>
+
+    <div class="text" style="font-size: 18px; font-weight: 300; line-height: 1.6; color: #3F382D; margin-top: 18px; max-width: 27ch;">İki dakika hiçbir şey. Işık karşı kenara vardı ve sen oradaydın.</div>
+
+    <div class="text caps" style="font-size: 10px; color: #6E6555; margin-top: 26px;">Yarın üç dakika değil — yine iki</div>
+
+    <div style="height: 1px; background: rgba(34,30,23,0.16); margin: 30px 0 22px;"></div>
+
+    <div class="text caps" style="font-size: 11px; color: #221E17; text-align: center; padding: 18px 0; border: 1px solid rgba(34,30,23,0.34); min-height: 56px; box-sizing: border-box;">Kapat</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

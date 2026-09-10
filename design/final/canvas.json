@@ -1,0 +1,14 @@
+{
+  "artboards": [
+    { "file": "Marka.dc.html", "x": 0, "y": 0, "w": 620, "h": 844, "title": "Marka ve sistem" },
+    { "file": "Main.dc.html", "x": 780, "y": 0, "w": 390, "h": 844, "title": "Bugün" },
+    { "file": "OturumBekleme.dc.html", "x": 1330, "y": 0, "w": 390, "h": 844, "title": "Oturum · çevirmeden önce" },
+    { "file": "OturumIsik.dc.html", "x": 1880, "y": 0, "w": 390, "h": 844, "title": "Oturum · ışık yürürken" },
+    { "file": "OturumBitti.dc.html", "x": 2430, "y": 0, "w": 390, "h": 844, "title": "Oturum · bitti" }
+  ],
+  "annotations": [
+    { "id": "karar", "x": 0, "y": -250, "w": 620, "text": "YÖN: rengini dışarıdan alan uygulama + elle çizilmiş marka\n\nZemin beyaz ya da siyah değil — sıvalı bir duvar. Üstüne pencereden ışık düşüyor. Vurgu rengi yok; ışığın kendisi vurgu. Palet günün saatine göre kayıyor.\n\nMarka işareti bir pencere: kare çerçeve, içinde aydınlıkla gölgenin yumuşak kenarı. O kenarın adı zaten \"arada\"." },
+    { "id": "mekanik", "x": 1330, "y": -250, "w": 940, "text": "OTURUM: geri sayım rakamı yok\n\nTelefonu yüzüstü çevirdiğinde ışık pencereden girer ve karşı kenara doğru yürümeye başlar. Telefonu eline alırsan durur. İki dakikada da yirmi iki dakikada da aynı mesafeyi kat eder — yani süre uzadıkça ışık yavaşlar.\n\nSağ kenardaki neredeyse görünmez çizgi ışığın varması gereken yer. Bakarsın kımıldamıyordur; sonra bakarsın yol almıştır. \"Ne kadar kaldı\" kaygısını ortadan kaldıran şey bu." }
+  ],
+  "launch": { "view": "canvas" }
+}

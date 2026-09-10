@@ -82,6 +82,11 @@ struct HomeView: View {
                     .font(.headline)
                 Text(until, style: .relative)
                     .foregroundStyle(AradaTheme.quiet)
+                if let message = screenTime.liveActivityMessage {
+                    Text(message)
+                        .font(.caption)
+                        .foregroundStyle(AradaTheme.quiet)
+                }
             }
         case .stopping:
             Text("Koruma kaldırılıyor…")
@@ -103,9 +108,11 @@ struct HomeView: View {
                 showsPicker = true
             } label: {
                 HStack {
-                    Text(screenTime.selectedApplicationCount == 0 ? "Uygulamaları seç" : "Seçilen uygulamalar")
+                    Text("Korunacakları seç")
                     Spacer()
-                    Text("\(screenTime.selectedApplicationCount)")
+                    Text(screenTime.selectionSummary)
+                        .foregroundStyle(AradaTheme.quiet)
+                        .lineLimit(1)
                 }
             }
             .buttonStyle(QuietAradaButtonStyle())

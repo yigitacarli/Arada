@@ -29,6 +29,8 @@ Bu dosya yeni bir Codex sohbetinin başlangıç noktasıdır. Kullanıcıyla Tü
 - Kısa kullanıcı arası ile sistem koruma süresini ayrı durumlar olarak modelle. Arka planda güvenilir olmayan saniyelik timer ile engel kaldırma vaat etme.
 - Koruma başarısızsa arayüzde aktif gösterme. İzin iptali ve süresi geçmiş durum toparlanmalı.
 - Sistemden gelen opaque uygulama tokenlarından isim veya bundle ID çıkarmaya çalışma.
+- Family Activity seçimini yalnızca uygulama tokenı sayarak yorumlama. Uygulama, kategori ve web alanı tokenlarını hem seçim özetinde hem shield ayarlarında destekle.
+- Aktif 15 dakikalık koruma, ActivityKit Live Activity ile kilit ekranında geri sayım gösterir. Live Activity'nin sistem ayarından kapalı olması korumanın başlamasını engellemez; arayüz bunu açıkça bildirir.
 - Screen Time davranışı yalnızca fiziksel cihaz testiyle doğrulanmış sayılır. Simülatör veya imzasız derleme ürün kanıtı değildir.
 - Sertifika, provisioning profili, kişisel günlük veya gizli veri commit etme.
 - Her anlamlı görev sonunda `PROJECT_STATUS.md` dosyasını gerçek durumla güncelle. Yapılmayan testi yapılmış gibi yazma.

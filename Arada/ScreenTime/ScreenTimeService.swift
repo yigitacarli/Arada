@@ -8,11 +8,13 @@ final class ScreenTimeService: ObservableObject {
     @Published private(set) var authorizationStatus = AuthorizationCenter.shared.authorizationStatus
     @Published var selection: FamilyActivitySelection
     @Published private(set) var protectionState: ProtectionState = .inactive
+    @Published private(set) var liveActivityMessage: String?
 
     private let authorizationCenter = AuthorizationCenter.shared
     private let activityCenter = DeviceActivityCenter()
     private let settingsStore = ManagedSettingsStore(named: ScreenTimeConstants.storeName)
     private let sharedDefaults = UserDefaults(suiteName: ScreenTimeConstants.appGroupIdentifier)
+    private let liveActivityController = LiveActivityController()
 
     init() {
         if let data = sharedDefaults?.data(forKey: ScreenTimeConstants.selectionKey),
@@ -24,12 +26,16 @@ final class ScreenTimeService: ObservableObject {
         reconcileProtectionState()
     }
 
-    var selectedApplicationCount: Int {
-        selection.applicationTokens.count
+    var selectionSummary: String {
+        var parts: [String] = []
+        appendCount(selection.applicationTokens.count, singular: "uygulama", plural: "uygulama", to: &parts)
+        appendCount(selection.categoryTokens.count, singular: "kategori", plural: "kategori", to: &parts)
+        appendCount(selection.webDomainTokens.count, singular: "site", plural: "site", to: &parts)
+        return parts.isEmpty ? "Henüz seçim yok" : parts.joined(separator: " · ")
     }
 
     var canStartProtection: Bool {
-        authorizationStatus == .approved && selectedApplicationCount > 0 && !protectionState.isActive
+        authorizationStatus == .approved && selection.hasShieldTargets && !protectionState.isActive
     }
 
     func requestAuthorization() async {
@@ -53,8 +59,8 @@ final class ScreenTimeService: ObservableObject {
             protectionState = .failed(message: "Koruma için önce Screen Time izni gerekiyor.")
             return
         }
-        guard !selection.applicationTokens.isEmpty else {
-            protectionState = .failed(message: "Korumak istediğin en az bir uygulamayı seç.")
+        guard selection.hasShieldTargets else {
+            protectionState = .failed(message: "Korumak istediğin en az bir uygulama, kategori veya site seç.")
             return
         }
 
@@ -72,13 +78,20 @@ final class ScreenTimeService: ObservableObject {
 
         do {
             try activityCenter.startMonitoring(ScreenTimeConstants.activityName, during: schedule)
-            settingsStore.shield.applications = selection.applicationTokens
+            selection.applyShield(to: settingsStore)
             sharedDefaults?.set(end, forKey: ScreenTimeConstants.protectionEndKey)
             protectionState = .active(until: end)
+            do {
+                try liveActivityController.start(from: now, until: end)
+                liveActivityMessage = nil
+            } catch {
+                liveActivityMessage = error.localizedDescription
+            }
         } catch {
             settingsStore.clearAllSettings()
             sharedDefaults?.removeObject(forKey: ScreenTimeConstants.protectionEndKey)
             protectionState = .failed(message: "Koruma başlatılamadı: \(error.localizedDescription)")
+            liveActivityMessage = nil
         }
     }
 
@@ -113,6 +126,18 @@ final class ScreenTimeService: ObservableObject {
         activityCenter.stopMonitoring([ScreenTimeConstants.activityName])
         settingsStore.clearAllSettings()
         sharedDefaults?.removeObject(forKey: ScreenTimeConstants.protectionEndKey)
+        liveActivityController.endCurrentActivities()
+        liveActivityMessage = nil
         if clearState { protectionState = .inactive }
+    }
+
+    private func appendCount(
+        _ count: Int,
+        singular: String,
+        plural: String,
+        to parts: inout [String]
+    ) {
+        guard count > 0 else { return }
+        parts.append("\(count) \(count == 1 ? singular : plural)")
     }
 }

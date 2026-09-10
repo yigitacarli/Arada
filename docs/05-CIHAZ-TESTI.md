@@ -8,7 +8,7 @@ Bu test Screen Time çekirdeğini doğrular. Görsel tasarım değerlendirmesi d
 2. `Arada.xcodeproj` dosyasını Xcode ile aç.
 3. iPhone'u Mac'e bağla; telefonda bu bilgisayara güven ve gerekirse Developer Mode'u etkinleştir.
 4. Xcode üst çubuğundan hedef cihaz olarak iPhone 16e'yi seç.
-5. Ana uygulama ile iki extension target'ın Signing & Capabilities bölümünde aynı Team'i seç.
+5. Ana uygulama ile üç extension target'ın Signing & Capabilities bölümünde aynı Team'i seç.
 6. Ana uygulama ve Device Activity Monitor için `group.app.arada.shared` App Group'unun etkin olduğunu doğrula.
 7. Family Controls capability'nin ana uygulama ve iki extension App ID/profilinde bulunduğunu doğrula. Xcode otomatik imza hatası verirse hata metnini aynen kaydet; rastgele bundle ID veya entitlement silme.
 
@@ -20,13 +20,21 @@ Bu test Screen Time çekirdeğini doğrular. Görsel tasarım değerlendirmesi d
 4. Seçimden dönünce sayının `1` olduğunu doğrula.
 5. ARADA'yı tamamen kapatıp yeniden aç; seçimin korunduğunu doğrula.
 
+## Test A2 — kategori seçimi
+
+1. Seçiciyi yeniden aç, önceki seçimi temizle ve “Sosyal” kategorisinin tamamını seç.
+2. ARADA'ya dönünce seçim özetinin `1 kategori` olduğunu doğrula.
+3. 15 dakikalık korumayı başlat ve Sosyal kategorisindeki bir uygulamayı aç.
+4. ARADA shield ekranını gördüğünü doğrula.
+
 ## Test B — koruma ve otomatik bitiş
 
 1. Başlangıç saatini kaydet ve “15 dakikalık ara başlat” düğmesine bas.
-2. Seçilen test uygulamasını aç; ARADA shield ekranını gördüğünü doğrula.
-3. Telefonu kilitle ve ARADA'yı açık tutma.
-4. Beklenen bitişten sonra test uygulamasını yeniden aç.
-5. Shield kalktıysa gerçek bitiş saatini kaydet. Birkaç dakikalık gecikme varsa süreyi de yaz; tam zamanında çalışmış gibi raporlama.
+2. Kilit ekranında veya Bildirim Merkezi'nde ARADA geri sayımının oluştuğunu doğrula. Görünmüyorsa Ayarlar > Uygulamalar > ARADA > Canlı Etkinlikler ayarını kontrol et ve uygulamadaki hata metnini kaydet.
+3. Seçilen test uygulamasını aç; ARADA shield ekranını gördüğünü doğrula.
+4. Telefonu kilitle ve ARADA'yı açık tutma.
+5. Beklenen bitişten sonra test uygulamasını yeniden aç.
+6. Shield kalktıysa gerçek bitiş saatini ve Live Activity'nin kalkıp kalkmadığını kaydet. Birkaç dakikalık gecikme varsa süreyi de yaz; tam zamanında çalışmış gibi raporlama.
 
 ## Test C — erken bitirme
 

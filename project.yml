@@ -35,6 +35,8 @@ targets:
         embed: true
       - target: AradaShieldConfiguration
         embed: true
+      - target: AradaLiveActivity
+        embed: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: app.arada.ios
@@ -49,6 +51,7 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         ITSAppUsesNonExemptEncryption: false
+        NSSupportsLiveActivities: true
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
@@ -93,6 +96,26 @@ targets:
         NSExtension:
           NSExtensionPointIdentifier: com.apple.ManagedSettingsUI.shield-configuration-service
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldConfigurationExtension
+  AradaLiveActivity:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: LiveActivityExtension
+      - path: Shared/AradaActivityAttributes.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.arada.ios.live-activity
+        PRODUCT_NAME: AradaLiveActivity
+        SKIP_INSTALL: YES
+        CODE_SIGN_ENTITLEMENTS: Config/LiveActivity.entitlements
+    info:
+      path: Supporting/LiveActivity-Info.plist
+      properties:
+        CFBundleDisplayName: ARADA Live Activity
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
   AradaTests:
     type: bundle.unit-test
     platform: iOS
@@ -112,6 +135,7 @@ schemes:
         Arada: all
         AradaDeviceActivityMonitor: all
         AradaShieldConfiguration: all
+        AradaLiveActivity: all
         AradaTests: [test]
     test:
       targets:

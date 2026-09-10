@@ -8,6 +8,8 @@ Son güncelleme: 10 Eylül 2026
 - Family Controls bireysel izin isteği.
 - Sistem uygulama seçicisi ve seçimin App Group içinde yerel saklanması.
 - Seçilen uygulamalara hemen shield uygulayan 15 dakikalık teknik koruma.
+- Tekil uygulama, tüm kategori ve web alanı seçimlerini ayrı ayrı özetleyen ve shield'a uygulayan seçim modeli.
+- Aktif koruma boyunca kilit ekranı/Bildirim Merkezi'nde geri sayım gösteren Live Activity uzantısı.
 - Süre sonunda korumayı kaldırmak için Device Activity Monitor extension.
 - ARADA dilinde sınırlı Shield Configuration extension.
 - Kullanıcının ARADA içinden korumayı erken bitirmesi.
@@ -25,17 +27,23 @@ Bu ekran teknik denemedir; nihai ürün tasarımı değildir. Uygulama açılı�
 - Xcode otomatik provisioning ile `app.arada.ios` ve iki extension için güncel geliştirme profillerini oluşturdu; App Group ve Family Controls yetkileriyle imzalı cihaz derlemesi başarılı.
 - İmzalı uygulama bağlı “Yeet’s iPhone” cihazına kuruldu ve `app.arada.ios` başarıyla başlatıldı. Cihaz iOS 26.6.1 olarak görüldü.
 - Kullanıcı Apple Developer üyeliği ve Family Controls dağıtım izni olduğunu açıkça doğruladı.
+- Kullanıcı ilk cihaz denemesinde tekil uygulama seçiminin sayıldığını ve temel uygulamanın çalıştığını doğruladı.
+- İlk cihaz denemesinde tüm “Sosyal” kategorisinin `0` görünmesi teşhis edildi: seçim kategori tokenı üretiyor, önceki kod yalnız uygulama tokenlarını sayıyor ve koruyordu. Kod kategori ve web alanı tokenlarını da işleyecek şekilde düzeltildi; yeni cihaz derlemesinde tekrar test bekliyor.
+- İlk sürümde Live Activity uzantısı bulunmadığı için Bildirim Merkezi'nde sayaç oluşmadı. ActivityKit/WidgetKit uzantısı eklendi; yeni cihaz derlemesinde tekrar test bekliyor.
+- Kategori düzeltmesi ve Live Activity içeren dört hedefli proje imzalı olarak derlendi, bağlı “Yeet’s iPhone” cihazına kuruldu ve başlatıldı. Kategori shield'ı ile Live Activity'nin görsel cihaz doğrulaması kullanıcıdan bekleniyor.
 
 ## Henüz doğrulanmayanlar
 
-- Uygulama seçicinin gerçek cihazda izin verme/reddetme davranışı.
+- İzin reddetme davranışı.
+- Yeni sürümde tüm kategori seçiminin özette görünmesi ve kategori uygulamalarının shield alması.
+- Yeni sürümde Live Activity'nin başlaması, geri sayması ve koruma bitince kalkması.
 - Shield'ın seçilen uygulamada görünmesi.
 - Telefon kilitliyken veya ARADA kapalıyken yaklaşık 15 dakika sonunda shield'ın kalkması.
 - Üç tekrar, erken bitirme ve izin iptali senaryoları.
 
 ## Sıradaki iş
 
-Telefonda açık olan ARADA'da `docs/05-CIHAZ-TESTI.md` içindeki Test A'yı tamamla: Screen Time izni ver, zararsız bir test uygulaması seç, seçilen sayının 1 olduğunu ve yeniden açınca seçimin korunduğunu doğrula. Ardından Test B–D uygulanacak. Test başarıyla geçmeden tasarım sistemini ve ürün akışını genişletme.
+Yeni cihaz derlemesini iPhone'a kur. `docs/05-CIHAZ-TESTI.md` içindeki Test A2 ile tüm “Sosyal” kategori seçiminin özette `1 kategori` göründüğünü ve kategori içindeki bir uygulamanın shield aldığını doğrula. Ardından Test B ile Live Activity geri sayımını ve otomatik bitişi doğrula; sonra Test C–D uygulanacak. Bu teknik çekirdek doğrulanınca nihai tasarım sistemi ve ürün akışı ele alınacak.
 
 Gerçek cihaz sonucu kaydedilirken tarih/saat, iOS sürümü, seçilen test uygulaması, koruma başlangıcı, beklenen bitiş, gerçek bitiş ve gözlenen hata yazılmalı. Kişisel uygulama kullanım içeriği kaydedilmemeli.
 

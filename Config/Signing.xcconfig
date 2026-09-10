@@ -1,0 +1,6 @@
+// Apple Developer hesabındaki Team ID'ni bir kez buraya yaz.
+// Nerede: developer.apple.com > Account > Membership details > Team ID (10 karakter)
+// Örnek:  DEVELOPMENT_TEAM = A1B2C3D4E5
+DEVELOPMENT_TEAM =
+
+CODE_SIGN_STYLE = Automatic

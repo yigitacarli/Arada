@@ -1,0 +1,24 @@
+/* Today */
+"today.subtitle" = "Boredom training";
+"today.todayLabel" = "Today";
+"today.doneLabel" = "Done today";
+"today.minutes" = "minutes";
+"today.weekDay %lld %lld" = "Week %1$lld · Day %2$lld";
+"today.instruction" = "Put the phone face down. No headphones, no music, nothing. The timer only runs while the phone is down.";
+"today.start" = "Start";
+"today.again" = "Sit again";
+"today.progressLabel" = "Eight weeks";
+"today.statDays" = "Days";
+"today.statFocused" = "Time spent bored";
+"today.programComplete" = "You finished the eight weeks.";
+"today.programCompleteBody" = "Twenty-two minutes with nothing to look at. That capacity was gone and you built it back. Keep sitting whenever you want to.";
+
+/* Session */
+"session.turnOver" = "Turn the phone face down";
+"session.turnOverBody" = "The timer starts on its own. It stops if you pick the phone up.";
+"session.paused" = "Paused. Turn it back over.";
+"session.giveUp" = "End the session";
+"session.cancel" = "Not now";
+"session.done" = "Done.";
+"session.doneBody %lld" = "%lld minutes with no input. Tomorrow is the same.";
+"session.close" = "Close";
